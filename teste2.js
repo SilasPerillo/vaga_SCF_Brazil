@@ -1,17 +1,11 @@
-var data =  require("./fakeData");
+const createNewUser = require("./service/postUser.service");
 
-module.exports = function(req, res){
-  
-    var name =  req.body.name;
-    var jov =  req.body.job;
-    
-    var newUser = {
-        name: name,
-        job: job,
-    }
+var data = require("./fakeData");
 
-    data.push(newUser)
-    
-    res.send(newUser);
+module.exports = function (req, res) {
+  const { body } = req;
 
+  const { statusCode, message } = createNewUser(body);
+
+  return res.status(statusCode).json(message);
 };

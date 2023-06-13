@@ -7,7 +7,7 @@ const {
 
 const getUser = (req, res) => {
   const { name } = req.query;
-
+  // criei a camada service para organizar mais o código, deixando as regras de negócios lá
   const { statusCode, message } = getUserService(name);
 
   return res.status(statusCode).json(message);

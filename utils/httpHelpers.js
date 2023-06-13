@@ -3,7 +3,11 @@ const ok = (data) => ({
   message: data,
 });
 
-// const badRequest = (message) => ({
+const created = (data) => ({
+  statusCode: 201,
+  message: data,
+});
+
 const badRequest = (message) => ({
   statusCode: 400,
   message: { message },
@@ -18,4 +22,5 @@ module.exports = {
   ok,
   badRequest,
   notFound,
+  created,
 };

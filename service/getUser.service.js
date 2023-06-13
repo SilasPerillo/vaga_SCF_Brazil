@@ -1,7 +1,7 @@
 const { ok, badRequest, notFound } = require("../utils/httpHelpers");
 
 var data = require("../fakeData");
-
+// crio o helper para deixar o código mais organizado, menos verboso e de maior facilidade de manutenção
 function getUserService(body) {
   if (!body) return badRequest("Nome do usuário não fornecido.");
 
