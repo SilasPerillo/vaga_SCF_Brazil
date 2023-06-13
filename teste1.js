@@ -1,27 +1,21 @@
-const getUserService = require("./service/getUser.service");
+const {
+  getUserService,
+  getAllUsersService,
+} = require("./service/getUser.service");
 
-var data = require("./fakeData");
+// var data = require("./fakeData");
 
-const getUser = (req, res, next) => {
+const getUser = (req, res) => {
   const { name } = req.query;
 
   const { statusCode, message } = getUserService(name);
 
   return res.status(statusCode).json(message);
-
-  //   if (!name) {
-  //     return res.status(400).send("Nome do usuário não fornecido.");
-  //   }
-
-  //   const user = data.find((elem) => elem.name === name);
-
-  //   if (user) return res.send(user);
-
-  //   if (!user) return res.status(400).send("Nome do usuário não encontrado.");
 };
 
-const getUsers = (req, res, next) => {
-  res.send(data);
+const getUsers = (req, res) => {
+  const { statusCode, message } = getAllUsersService();
+  return res.status(statusCode).json(message);
 };
 
 module.exports = {

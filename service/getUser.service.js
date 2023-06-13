@@ -3,7 +3,6 @@ const { ok, badRequest, notFound } = require("../utils/httpHelpers");
 var data = require("../fakeData");
 
 function getUserService(body) {
-  console.log(data);
   if (!body) return badRequest("Nome do usuário não fornecido.");
 
   const user = data.find((elem) => elem.name == body);
@@ -12,4 +11,13 @@ function getUserService(body) {
   if (user) return ok(user);
 }
 
-module.exports = getUserService;
+function getAllUsersService() {
+  if (!data) return badRequest("Base vazia");
+
+  return ok(data);
+}
+
+module.exports = {
+  getUserService,
+  getAllUsersService,
+};
