@@ -1,4 +1,4 @@
-var data = require("../fakeData");
+const data = require("../fakeData");
 const { ok, badRequest, notFound } = require("../utils/httpHelpers");
 
 function removeUser(body) {

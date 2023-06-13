@@ -1,5 +1,5 @@
-const { ok, badRequest, notFound } = require("../utils/httpHelpers");
-var data = require("../fakeData");
+const { ok, notFound } = require("../utils/httpHelpers");
+const data = require("../fakeData");
 
 function updateUser(id, body) {
   const user = data.find((obj) => obj.id == id);

@@ -1,4 +1,4 @@
-var data = require("../fakeData");
+const data = require("../fakeData");
 const { created } = require("../utils/httpHelpers");
 
 function createNewUser({ name, job }) {
